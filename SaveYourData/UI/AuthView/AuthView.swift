@@ -9,6 +9,8 @@ struct AuthView: View {
     @State var userName = ""
     @State var password = ""
 
+    @AppStorage("userName") private var username: String = .empty
+
     var body: some View {
         VStack {
             TextField("Имя пользователя", text: $userName)
@@ -42,6 +44,8 @@ struct AuthView: View {
             if $0.code == 200 {
                 stateManager.state = .home
             }
+
+            username = $0.data?.username ?? .empty
         })
     }
 

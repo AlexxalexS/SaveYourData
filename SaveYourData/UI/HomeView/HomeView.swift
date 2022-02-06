@@ -15,6 +15,8 @@ struct HomeView: View {
     @State private var cancellable: AnyCancellable?
     @ObservedObject var stateManager = RootState.shared
 
+    @State var userName = UserDefaults.standard.string(forKey: "userName")
+
     @State var timeRemaining = 10
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
@@ -24,7 +26,7 @@ struct HomeView: View {
                 Text("Вы вошли").padding()
                 Spacer()
 
-                Text("Привет!").font(.title).padding()
+                Text("Привет \(userName ?? "")!").font(.title).padding()
 
                 Text(token)
 
