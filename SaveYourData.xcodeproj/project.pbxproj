@@ -22,6 +22,7 @@
 		8AC1F19727B0390500781260 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1F19627B0390500781260 /* AuthView.swift */; };
 		8AC1F19927B03AE000781260 /* View + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1F19827B03AE000781260 /* View + Extension.swift */; };
 		8AC1F19C27B05F8B00781260 /* HiddenNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1F19B27B05F8B00781260 /* HiddenNavigationBar.swift */; };
+		8AC1F1A327B070FD00781260 /* TOTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1F1A227B070FD00781260 /* TOTPResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		8AC1F19627B0390500781260 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		8AC1F19827B03AE000781260 /* View + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Extension.swift"; sourceTree = "<group>"; };
 		8AC1F19B27B05F8B00781260 /* HiddenNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenNavigationBar.swift; sourceTree = "<group>"; };
+		8AC1F1A227B070FD00781260 /* TOTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				8AC1F19327B0355400781260 /* LoginResponse.swift */,
+				8AC1F1A227B070FD00781260 /* TOTPResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				8AC1F18F27B031C300781260 /* String + Extension.swift in Sources */,
 				8AC1F19927B03AE000781260 /* View + Extension.swift in Sources */,
 				8A6190B9274719E10098EA94 /* QRCodeView.swift in Sources */,
+				8AC1F1A327B070FD00781260 /* TOTPResponse.swift in Sources */,
 				8AC1F19127B0326500781260 /* DefaultResponse.swift in Sources */,
 				8AC1F19727B0390500781260 /* AuthView.swift in Sources */,
 				8AC1F18527B02DB000781260 /* API.swift in Sources */,

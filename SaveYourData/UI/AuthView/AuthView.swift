@@ -1,10 +1,10 @@
 import SwiftUI
 import Combine
-import KeychainSwift
 
 struct AuthView: View {
 
     @State private var cancellable: AnyCancellable?
+    @ObservedObject var stateManager = RootState.shared
 
     @State var userName = ""
     @State var password = ""
@@ -38,7 +38,10 @@ struct AuthView: View {
             guard $0.errors == nil else {
                 return
             }
-            print($0.data)
+
+            if $0.code == 200 {
+                stateManager.state = .home
+            }
         })
     }
 

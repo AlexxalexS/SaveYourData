@@ -15,8 +15,9 @@
 
 struct DefaultResponse<T: Codable>: Codable {
 
-    var code: Int?
+    let code: Int?
     let data: T?
+    let message: String?
     let errors: [String: [String]]?
 
 }
