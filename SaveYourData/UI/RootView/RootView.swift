@@ -34,7 +34,6 @@ final class Loader: ObservableObject {
 
 @main
 struct RootView: App {
-
     @ObservedObject var stateManager = RootState.shared
     @ObservedObject var stateLoader = Loader.shared
 

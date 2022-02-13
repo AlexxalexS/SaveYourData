@@ -10,7 +10,7 @@ struct Answer: Codable {
 }
 
 struct HomeView: View {
-
+    @Environment(\.scenePhase) var scenePhase
     @State private var isUnlock = false
     @State private var token = ""
 
@@ -112,6 +112,16 @@ struct HomeView: View {
         }.animation(.easeInOut(duration: 0.3))
             .onAppear {
                 generateSecret()
+            }
+            .onChange(of: scenePhase) { newPhase in
+                if newPhase == .active {
+                    print("Active")
+                } else if newPhase == .inactive {
+                    isUnlock = false
+                } else if newPhase == .background {
+                    isUnlock = false
+
+                }
             }
     }
 
