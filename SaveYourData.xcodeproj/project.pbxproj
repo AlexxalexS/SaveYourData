@@ -13,6 +13,9 @@
 		8A7CCE332705EE6300BC098F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7CCE322705EE6300BC098F /* HomeView.swift */; };
 		8A7CCE352705EE6500BC098F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A7CCE342705EE6500BC098F /* Assets.xcassets */; };
 		8A7CCE382705EE6500BC098F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A7CCE372705EE6500BC098F /* Preview Assets.xcassets */; };
+		8AB8E73D27B98C9A009082DE /* Alert + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8E73C27B98C9A009082DE /* Alert + Extension.swift */; };
+		8AB8E73F27B98CB5009082DE /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8E73E27B98CB5009082DE /* AlertMessage.swift */; };
+		8AB8E74127B9ABFB009082DE /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB8E74027B9ABFB009082DE /* ActivityIndicator.swift */; };
 		8AC1F18327B02D3C00781260 /* CoreNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1F18227B02D3C00781260 /* CoreNetwork.swift */; };
 		8AC1F18527B02DB000781260 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1F18427B02DB000781260 /* API.swift */; };
 		8AC1F18727B02DDC00781260 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC1F18627B02DDC00781260 /* NetworkService.swift */; };
@@ -34,6 +37,9 @@
 		8A7CCE342705EE6500BC098F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A7CCE372705EE6500BC098F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8A7CCE7A2705F0EE00BC098F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8AB8E73C27B98C9A009082DE /* Alert + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert + Extension.swift"; sourceTree = "<group>"; };
+		8AB8E73E27B98CB5009082DE /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
+		8AB8E74027B9ABFB009082DE /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		8AC1F18227B02D3C00781260 /* CoreNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreNetwork.swift; sourceTree = "<group>"; };
 		8AC1F18427B02DB000781260 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8AC1F18627B02DDC00781260 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -121,6 +127,7 @@
 			children = (
 				8AC1F18E27B031C300781260 /* String + Extension.swift */,
 				8AC1F19827B03AE000781260 /* View + Extension.swift */,
+				8AB8E73C27B98C9A009082DE /* Alert + Extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -130,6 +137,8 @@
 			children = (
 				8AC1F19327B0355400781260 /* LoginResponse.swift */,
 				8AC1F1A227B070FD00781260 /* TOTPResponse.swift */,
+				8AB8E73E27B98CB5009082DE /* AlertMessage.swift */,
+				8AB8E74027B9ABFB009082DE /* ActivityIndicator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,15 +266,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A7CCE332705EE6300BC098F /* HomeView.swift in Sources */,
+				8AB8E73F27B98CB5009082DE /* AlertMessage.swift in Sources */,
 				8AC1F19C27B05F8B00781260 /* HiddenNavigationBar.swift in Sources */,
 				8A7CCE312705EE6300BC098F /* RootView.swift in Sources */,
 				8AC1F19427B0355400781260 /* LoginResponse.swift in Sources */,
+				8AB8E73D27B98C9A009082DE /* Alert + Extension.swift in Sources */,
 				8AC1F18F27B031C300781260 /* String + Extension.swift in Sources */,
 				8AC1F19927B03AE000781260 /* View + Extension.swift in Sources */,
 				8A6190B9274719E10098EA94 /* QRCodeView.swift in Sources */,
 				8AC1F1A327B070FD00781260 /* TOTPResponse.swift in Sources */,
 				8AC1F19127B0326500781260 /* DefaultResponse.swift in Sources */,
 				8AC1F19727B0390500781260 /* AuthView.swift in Sources */,
+				8AB8E74127B9ABFB009082DE /* ActivityIndicator.swift in Sources */,
 				8AC1F18527B02DB000781260 /* API.swift in Sources */,
 				8AC1F18727B02DDC00781260 /* NetworkService.swift in Sources */,
 				8AC1F18327B02D3C00781260 /* CoreNetwork.swift in Sources */,

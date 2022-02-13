@@ -25,69 +25,73 @@ struct HomeView: View {
     var body: some View {
         VStack {
             if isUnlock {
-                Text("Вы вошли").padding()
-                Spacer()
+                HStack{
+                    Spacer()
+                    Text("Вы вошли")
+                    Spacer()
+                }.overlay(
+                    Button(action: {
+                        isUnlock = false
+                    }, label: {
+                        Text("Выйти")
+                            .padding(8)
+                            .background(Color.black)
+                            .foregroundColor(.white)
+                            .cornerRadius(26)
+                            .font(.caption)
+                    }).padding(.horizontal), alignment: .trailing
+                )
 
-                Text("Привет \(userName ?? "")!").font(.title).padding()
+                Text("Привет \(userName ?? "")!")
+                    .font(.title)
+                    .padding()
 
-                Text(token)
+                QRCodeView(code: "\(token).\(userId ?? "")")
+                    .frame(height: 400)
 
+                ZStack {
+                    Circle()
+                        .stroke(lineWidth: 25.0)
+                        .foregroundColor(timeRemaining >= 5 ? Color.blue : Color.red)
+                        .opacity(0.3)
 
-                VStack {
-                    QRCodeView(code: "\(token).\(userId ?? "")")
-                }
-
-                Text("\(timeRemaining)")
-                    .onReceive(timer) { _ in
-                        if timeRemaining > 0 {
-                            timeRemaining -= 1
+                    Circle()
+                        .trim(from: 0, to: CGFloat(Float(1.000/30.000) * Float(timeRemaining)))
+                        .stroke(style: StrokeStyle(lineWidth: 25.0, lineCap: .round, lineJoin: .round))
+                        .foregroundColor(timeRemaining >= 5 ? Color.blue : Color.red)
+                        .rotationEffect(Angle(degrees: -90.0))
+                        .onReceive(timer) { _ in
+                            if timeRemaining > 0 {
+                                timeRemaining -= 1
+                            }
+                            if timeRemaining == 0 {
+                                generateSecret()
+                            }
                         }
-                        if timeRemaining == 0 {
-                            generateSecret()
-                        }
-                    }
+                }.padding()
 
                 Button(action: {
                     generateSecret()
                 }, label: {
-                    Text("Выслать повторно")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(26)
-                        .padding(.top, 60)
-                })
-
-                Button(action: {
-                    generateSecret()
-                }, label: {
-                    Text("СГЕНЕРИРОВАТЬ")
-                        .padding()
-                        .background(Color.red)
-                        .foregroundColor(.black)
-                        .cornerRadius(26)
-                        .padding(.top, 60)
-                })
-
-                Button(action: {
-                    isUnlock = false
-                }, label: {
-                    Text("Выйти")
-                        .padding()
+                    Text("Сгенерировать заново")
+                        .padding(8)
+                        .font(.body)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(26)
                 })
-                Spacer()
+                    .padding(.top, 40)
             } else {
                 Spacer()
                 Text("Показать QR код")
                     .padding()
+
                 Button(action: {
                     authenticate()
                 }, label: {
                     Text("Войти по FaceID")
                         .padding()
+                        .padding(.horizontal)
                         .background(Color.black)
                         .foregroundColor(.white)
                         .cornerRadius(26)
@@ -96,8 +100,9 @@ struct HomeView: View {
                 Spacer()
 
                 Button(action: {
-                    token = .empty
-                    // secret = .empty
+                    KeychainSwift().delete(.userId)
+                    KeychainSwift().delete(.token)
+                    KeychainSwift().delete(.secret)
                     stateManager.state = .auth
                 }, label: {
                     Text("Сменить аккаунт")
@@ -115,7 +120,7 @@ struct HomeView: View {
         var error: NSError?
 
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-            let reason = "We need to unloack your data."
+            let reason = "We need to unlock your data."
 
             //context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics)
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) {
@@ -146,17 +151,17 @@ struct HomeView: View {
                 default:
                     break
                 }
-        }, receiveValue: {
-            guard $0.errors == nil else {
-                return
-            }
-            if let isToken = $0.data?.token {
-                token = isToken
-            }
-            if let isTime = $0.data?.remaining {
-                timeRemaining = isTime
-            }
-        })
+            }, receiveValue: {
+                guard $0.error == nil else {
+                    return
+                }
+                if let isToken = $0.data?.token {
+                    token = isToken
+                }
+                if let isTime = $0.data?.remaining {
+                    timeRemaining = isTime
+                }
+            })
     }
 
     func generateSecret() {

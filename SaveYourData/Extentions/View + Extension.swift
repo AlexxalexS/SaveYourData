@@ -19,4 +19,11 @@ extension View {
         }
     }
 
+    func alert(_ item: Binding<AlertMessage?>) -> some View {
+        self.alert(item: item) {
+            .init(alert: $0)
+        }
+    }
+
+
 }

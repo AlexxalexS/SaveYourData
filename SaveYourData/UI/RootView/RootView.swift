@@ -16,11 +16,27 @@ final class RootState: ObservableObject {
 
 }
 
+final class Loader: ObservableObject {
+
+    enum LoaderState {
+
+        case show
+        case hide
+
+    }
+
+    @Published var state: LoaderState = .hide
+
+    static let shared = Loader()
+
+}
+
 
 @main
 struct RootView: App {
 
     @ObservedObject var stateManager = RootState.shared
+    @ObservedObject var stateLoader = Loader.shared
 
     var body: some Scene {
         WindowGroup {
@@ -37,8 +53,14 @@ struct RootView: App {
                             .hiddenNavigationBarStyle()
                     }
                 }
+                if case .show = stateLoader.state {
+                    LoaderView()
+                }
             }.onAppear {
-                guard accessToken != nil, secret != nil else {
+                guard
+                    accessToken != nil,
+                    secret != nil
+                else {
                     stateManager.state = .auth
                     return
                 }
