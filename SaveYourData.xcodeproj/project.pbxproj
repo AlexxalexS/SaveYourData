@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A23615827B3076200C3F145 /* SwiftOTP in Frameworks */ = {isa = PBXBuildFile; productRef = 8A23615727B3076200C3F145 /* SwiftOTP */; };
 		8A6190B9274719E10098EA94 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6190B8274719E10098EA94 /* QRCodeView.swift */; };
 		8A7CCE312705EE6300BC098F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7CCE302705EE6300BC098F /* RootView.swift */; };
 		8A7CCE332705EE6300BC098F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7CCE322705EE6300BC098F /* HomeView.swift */; };
@@ -50,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A23615827B3076200C3F145 /* SwiftOTP in Frameworks */,
 				8AC1F18C27B02FFF00781260 /* KeychainSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +196,7 @@
 			name = SaveYourData;
 			packageProductDependencies = (
 				8AC1F18B27B02FFF00781260 /* KeychainSwift */,
+				8A23615727B3076200C3F145 /* SwiftOTP */,
 			);
 			productName = SaveYourData;
 			productReference = 8A7CCE2D2705EE6300BC098F /* SaveYourData.app */;
@@ -225,6 +228,7 @@
 			mainGroup = 8A7CCE242705EE6300BC098F;
 			packageReferences = (
 				8AC1F18A27B02FFF00781260 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				8A23615627B3076200C3F145 /* XCRemoteSwiftPackageReference "SwiftOTP" */,
 			);
 			productRefGroup = 8A7CCE2E2705EE6300BC098F /* Products */;
 			projectDirPath = "";
@@ -404,8 +408,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -437,8 +442,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -477,6 +483,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8A23615627B3076200C3F145 /* XCRemoteSwiftPackageReference "SwiftOTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lachlanbell/SwiftOTP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		8AC1F18A27B02FFF00781260 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
@@ -488,6 +502,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8A23615727B3076200C3F145 /* SwiftOTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A23615627B3076200C3F145 /* XCRemoteSwiftPackageReference "SwiftOTP" */;
+			productName = SwiftOTP;
+		};
 		8AC1F18B27B02FFF00781260 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8AC1F18A27B02FFF00781260 /* XCRemoteSwiftPackageReference "keychain-swift" */;

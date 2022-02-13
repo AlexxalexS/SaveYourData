@@ -184,6 +184,7 @@ enum MethodREST: String {
 
 var accessToken: String? = KeychainSwift().get(.token)
 var secret: String? = KeychainSwift().get(.secret)
+var userId: String? = KeychainSwift().get(.userId)
 
 extension NetworkService {
 
@@ -264,6 +265,14 @@ extension NetworkService {
                 } else {
                     KeychainSwift().delete(.secret)
                 }
+                secret = result.data?.secret
+
+                if let id = result.data?.id {
+                    KeychainSwift().set(id, forKey: .userId)
+                } else {
+                    KeychainSwift().delete(.userId)
+                }
+                userId = result.data?.id
             }
             return $0
         }.eraseToAnyPublisher()

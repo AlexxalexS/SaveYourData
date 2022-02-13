@@ -6,5 +6,6 @@ extension String {
 
     static var token = "token"
     static var secret = "secret"
+    static var userId = "id"
 
 }

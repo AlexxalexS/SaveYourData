@@ -1,6 +1,8 @@
 import LocalAuthentication
 import SwiftUI
 import Combine
+import SwiftOTP
+import KeychainSwift
 
 struct Answer: Codable {
     var token: String
@@ -30,8 +32,9 @@ struct HomeView: View {
 
                 Text(token)
 
+
                 VStack {
-                    QRCodeView(code: token)
+                    QRCodeView(code: "\(token).\(userId ?? "")")
                 }
 
                 Text("\(timeRemaining)")
@@ -40,17 +43,28 @@ struct HomeView: View {
                             timeRemaining -= 1
                         }
                         if timeRemaining == 0 {
-                            getSecret()
+                            generateSecret()
                         }
                     }
 
                 Button(action: {
-                    getSecret()
+                    generateSecret()
                 }, label: {
                     Text("Выслать повторно")
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
+                        .cornerRadius(26)
+                        .padding(.top, 60)
+                })
+
+                Button(action: {
+                    generateSecret()
+                }, label: {
+                    Text("СГЕНЕРИРОВАТЬ")
+                        .padding()
+                        .background(Color.red)
+                        .foregroundColor(.black)
                         .cornerRadius(26)
                         .padding(.top, 60)
                 })
@@ -83,7 +97,7 @@ struct HomeView: View {
 
                 Button(action: {
                     token = .empty
-                    secret = .empty
+                    // secret = .empty
                     stateManager.state = .auth
                 }, label: {
                     Text("Сменить аккаунт")
@@ -91,6 +105,9 @@ struct HomeView: View {
             }
 
         }.animation(.easeInOut(duration: 0.3))
+            .onAppear {
+                generateSecret()
+            }
     }
 
     func authenticate() {
@@ -107,7 +124,7 @@ struct HomeView: View {
                 DispatchQueue.main.async {
                     if success {
                         isUnlock = true
-                        getSecret()
+                        generateSecret()
                     } else {
                         // some problem
                     }
@@ -125,6 +142,7 @@ struct HomeView: View {
                 switch $0 {
                 case .failure(let error):
                     print(error)
+                    cancellable = nil
                 default:
                     break
                 }
@@ -139,6 +157,26 @@ struct HomeView: View {
                 timeRemaining = isTime
             }
         })
+    }
+
+    func generateSecret() {
+        guard let secret = secret else { return }
+        guard let data = base32DecodeToData(secret) else { return }
+
+        let totp = TOTP(secret: data, digits: 6, timeInterval: 30, algorithm: .sha1)
+        guard let code = totp?.generate(time: Date()) else { return }
+
+        token = code
+
+        updateTimer()
+    }
+
+    private func updateTimer() {
+        let date = Date()
+        let calendar = Calendar.current
+        let seconds = calendar.component(.second, from: date)
+
+        timeRemaining = Int(round(30 - ((Double(seconds))).truncatingRemainder(dividingBy: 30)))
     }
 }
 
