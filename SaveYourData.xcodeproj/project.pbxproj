@@ -85,7 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				8AC1F19227B0353100781260 /* Models */,
-				8AC1F18D27B031AE00781260 /* Extentions */,
+				8AC1F18D27B031AE00781260 /* Extensions */,
 				8AC1F18127B02D0400781260 /* Service */,
 				8AC1F19527B038E200781260 /* UI */,
 				8A7CCE7A2705F0EE00BC098F /* Info.plist */,
@@ -122,14 +122,14 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		8AC1F18D27B031AE00781260 /* Extentions */ = {
+		8AC1F18D27B031AE00781260 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				8AC1F18E27B031C300781260 /* String + Extension.swift */,
 				8AC1F19827B03AE000781260 /* View + Extension.swift */,
 				8AB8E73C27B98C9A009082DE /* Alert + Extension.swift */,
 			);
-			path = Extentions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8AC1F19227B0353100781260 /* Models */ = {
@@ -138,7 +138,6 @@
 				8AC1F19327B0355400781260 /* LoginResponse.swift */,
 				8AC1F1A227B070FD00781260 /* TOTPResponse.swift */,
 				8AB8E73E27B98CB5009082DE /* AlertMessage.swift */,
-				8AB8E74027B9ABFB009082DE /* ActivityIndicator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,6 +156,7 @@
 		8AC1F19A27B05F7900781260 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8AB8E74027B9ABFB009082DE /* ActivityIndicator.swift */,
 				8AC1F19B27B05F8B00781260 /* HiddenNavigationBar.swift */,
 			);
 			path = Common;

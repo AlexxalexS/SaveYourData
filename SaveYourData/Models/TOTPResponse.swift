@@ -1,5 +1,3 @@
-import Foundation
-
 struct TOTPResponse: Codable {
 
     let token: String

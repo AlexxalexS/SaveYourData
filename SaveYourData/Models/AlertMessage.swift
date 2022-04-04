@@ -1,10 +1,3 @@
-//
-//  AlertMessage.swift
-//  SaveYourData
-//
-//  Created by Alexey on 13.02.2022.
-//
-
 import SwiftUI
 
 struct AlertMessage: Identifiable {
