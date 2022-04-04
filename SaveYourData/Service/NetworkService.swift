@@ -1,6 +1,5 @@
 import Combine
 
-
 enum APIPath {
 
     case apiAuthLogin
@@ -20,7 +19,6 @@ enum APIPath {
 extension NetworkService {
 
     // MARK: Login
-
     struct LoginRequest: RequestEncodableProtocol {
 
         let username: String
@@ -33,7 +31,6 @@ extension NetworkService {
     }
 
     // MARK: TOTP Generator
-
     struct TOTPRequest: RequestEncodableProtocol {
 
         let secret: String
@@ -43,6 +40,5 @@ extension NetworkService {
     static func totpGenerate(_ body: TOTPRequest) -> AnyPublisher<DefaultResponse<TOTPResponse>, Error> {
         request(.apiTotpGenerate, .post, body)
     }
-
 
 }
