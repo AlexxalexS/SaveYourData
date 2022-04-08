@@ -8,8 +8,8 @@ struct AuthView: View {
     @ObservedObject var stateLoader = Loader.shared
     @State private var alert: AlertMessage?
 
-    @State var userName = ""
-    @State var password = ""
+    @State private var userName = ""
+    @State private var password = ""
 
     @AppStorage("userName") private var username: String = .empty
 

@@ -145,10 +145,10 @@
 		8AC1F19527B038E200781260 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8AC1F19F27B0606C00781260 /* HomeView */,
 				8AC1F19E27B0602800781260 /* AuthView */,
-				8AC1F19D27B0601C00781260 /* RootView */,
 				8AC1F19A27B05F7900781260 /* Common */,
+				8AC1F19F27B0606C00781260 /* HomeView */,
+				8AC1F19D27B0601C00781260 /* RootView */,
 			);
 			path = UI;
 			sourceTree = "<group>";
