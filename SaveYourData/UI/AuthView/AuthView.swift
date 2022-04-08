@@ -48,6 +48,10 @@ struct AuthView: View {
     }
 
     private func login() {
+        if username.isEmpty || password.isEmpty {
+            alert = .init(title: "Ошибка", message: "Заполните все поля")
+            return
+        }
         stateLoader.state = .show
         cancellable = NetworkService.login(.init(
             username: userName,
