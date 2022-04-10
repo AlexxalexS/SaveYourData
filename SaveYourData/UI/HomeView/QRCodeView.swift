@@ -1,32 +1,18 @@
-
 import SwiftUI
 import CoreImage.CIFilterBuiltins
 
 struct QRCodeView: View {
 
-    var code = "Alex"
-    let context = CIContext()
-    let filter = CIFilter.qrCodeGenerator()
+    var code = ""
+    private let context = CIContext()
+    private let filter = CIFilter.qrCodeGenerator()
 
     var body: some View {
-        VStack {
-//            TextField(
-//                "Code",
-//                text: code
-//            ).textContentType(.name)
-//                .font(.title)
-//                .padding(.horizontal)
-
-            Spacer()
-
-            Image(uiImage: generateQRCode(from: code))
-                .interpolation(.none)
-                .resizable()
-                .scaledToFit()
-                //.frame(width: 200, height: 200)
-
-            Spacer()
-        }.padding()
+        Image(uiImage: generateQRCode(from: code))
+            .interpolation(.none)
+            .resizable()
+            .scaledToFit()
+            .adjustContent()
     }
 
     func generateQRCode(from string: String) -> UIImage {
@@ -45,7 +31,9 @@ struct QRCodeView: View {
 }
 
 struct QRCode_Previews: PreviewProvider {
+
     static var previews: some View {
         QRCodeView()
     }
+
 }

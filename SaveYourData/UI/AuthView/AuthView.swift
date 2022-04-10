@@ -48,7 +48,7 @@ struct AuthView: View {
     }
 
     private func login() {
-        if username.isEmpty || password.isEmpty {
+        if userName.isEmpty || password.isEmpty {
             alert = .init(title: "Ошибка", message: "Заполните все поля")
             return
         }
@@ -85,6 +85,8 @@ struct AuthView_Previews: PreviewProvider {
 
     static var previews: some View {
         AuthView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
+            .previewDisplayName("iPhone 12")
     }
 
 }
