@@ -46,7 +46,6 @@ struct RootView: App {
                             AuthView()
                                 .hiddenNavigationBarStyle()
                         }.transition(.slide)
-                        //.transition(.opacity.animation(.easeInOut(duration: 0.1)))
                     }
                     if case .home = stateManager.state {
                         NavigationView {
