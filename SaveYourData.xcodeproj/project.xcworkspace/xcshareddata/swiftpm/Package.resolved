@@ -1,34 +1,32 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "KeychainSwift",
-        "repositoryURL": "https://github.com/evgenyneu/keychain-swift.git",
-        "state": {
-          "branch": null,
-          "revision": "96fb84f45a96630e7583903bd7e08cf095c7a7ef",
-          "version": "19.0.0"
-        }
-      },
-      {
-        "package": "swift-crypto",
-        "repositoryURL": "https://github.com/apple/swift-crypto.git",
-        "state": {
-          "branch": null,
-          "revision": "3bea268b223651c4ab7b7b9ad62ef9b2d4143eb6",
-          "version": "1.1.6"
-        }
-      },
-      {
-        "package": "SwiftOTP",
-        "repositoryURL": "https://github.com/lachlanbell/SwiftOTP.git",
-        "state": {
-          "branch": null,
-          "revision": "315acdb759083fd8f3c37b02fc021321c8934f9c",
-          "version": "3.0.0"
-        }
+  "pins" : [
+    {
+      "identity" : "keychain-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/evgenyneu/keychain-swift.git",
+      "state" : {
+        "revision" : "96fb84f45a96630e7583903bd7e08cf095c7a7ef",
+        "version" : "19.0.0"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto.git",
+      "state" : {
+        "revision" : "3bea268b223651c4ab7b7b9ad62ef9b2d4143eb6",
+        "version" : "1.1.6"
+      }
+    },
+    {
+      "identity" : "swiftotp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lachlanbell/SwiftOTP.git",
+      "state" : {
+        "revision" : "315acdb759083fd8f3c37b02fc021321c8934f9c",
+        "version" : "3.0.0"
+      }
+    }
+  ],
+  "version" : 2
 }

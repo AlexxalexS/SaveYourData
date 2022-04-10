@@ -39,23 +39,27 @@ struct RootView: App {
 
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                if case .auth = stateManager.state {
-                    NavigationView {
-                        AuthView()
-                            .hiddenNavigationBarStyle()
+            Group {
+                ZStack {
+                    if case .auth = stateManager.state {
+                        NavigationView {
+                            AuthView()
+                                .hiddenNavigationBarStyle()
+                        }.transition(.slide)
+                        //.transition(.opacity.animation(.easeInOut(duration: 0.1)))
+                    }
+                    if case .home = stateManager.state {
+                        NavigationView {
+                            HomeView()
+                                .hiddenNavigationBarStyle()
+                        }.transition(.slide)
+                    }
+                    if case .show = stateLoader.state {
+                        LoaderView().transition(.opacity.animation(.easeInOut))
                     }
                 }
-                if case .home = stateManager.state {
-                    NavigationView {
-                        HomeView()
-                            .hiddenNavigationBarStyle()
-                    }
-                }
-                if case .show = stateLoader.state {
-                    LoaderView()
-                }
-            }.onAppear {
+            }.animation(.default, value: stateManager.state)
+            .onAppear {
                 guard
                     accessToken != nil,
                     secret != nil
