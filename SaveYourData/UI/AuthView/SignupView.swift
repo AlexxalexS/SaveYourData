@@ -1,22 +1,36 @@
+//
+//  SignupView.swift
+//  SaveYourData
+//
+//  Created by Leha on 27.04.2022.
+//
+
 import SwiftUI
 import Combine
 
-struct AuthView: View {
+struct SignupView: View {
+
+    @Environment(\.presentationMode) var presentationMode
 
     @State private var cancellable: AnyCancellable?
-    @ObservedObject var stateManager = RootState.shared
     @ObservedObject var stateLoader = Loader.shared
     @State private var alert: AlertMessage?
 
     @State private var userName = ""
+    @State private var email = ""
     @State private var password = ""
-
-    @AppStorage("userName") private var username: String = .empty
 
     var body: some View {
         VStack {
-            Spacer()
             TextField("Имя пользователя", text: $userName)
+                .font(Font.system(size: 14))
+                .padding()
+                .background(RoundedRectangle(cornerRadius: 50).fill(Color.gray.opacity(0.2)))
+                .foregroundColor(.textField)
+                .padding(.bottom)
+                .offset(x: 8, y: 10)
+
+            TextField("Email", text: $email)
                 .font(Font.system(size: 14))
                 .padding()
                 .background(RoundedRectangle(cornerRadius: 50).fill(Color.gray.opacity(0.2)))
@@ -33,9 +47,9 @@ struct AuthView: View {
                 .offset(x: 8, y: 10)
 
             Button(action: {
-                login()
+                signup()
             }, label: {
-                Text("Войти")
+                Text("Зарегистрироваться")
                     .padding()
                     .padding(.horizontal)
                     .background(Color.mainButton)
@@ -43,30 +57,20 @@ struct AuthView: View {
                     .cornerRadius(26)
                     .padding(.top, 40)
             })
-            Spacer()
-            NavigationLink(destination: SignupView()) {
-                Text("Зарегистрироваться")
-                    .foregroundColor(.blue)
-                    .padding()
-//                    .padding(.horizontal)
-//                    .background(Color.blue)
-//                    .foregroundColor(.white)
-//                    .cornerRadius(26)
-
-            }
         }.adjustContent()
             .padding()
             .alert($alert)
     }
 
-    private func login() {
+    private func signup() {
         if userName.isEmpty || password.isEmpty {
             alert = .init(title: "Ошибка", message: "Заполните все поля")
             return
         }
         stateLoader.state = .show
-        cancellable = NetworkService.login(.init(
+        cancellable = NetworkService.signup(.init(
             username: userName,
+            email: email,
             password: password
         )).sink(
             receiveCompletion: {
@@ -83,20 +87,24 @@ struct AuthView: View {
                 return
             }
 
-            if $0.code == 200 {
-                stateManager.state = .home
+            if $0.code == 201 {
+                alert = .init(
+                    title: "Вы зарегистрировались",
+                    message: "Войти в систему",
+                    primaryButton: .default(Text("Ок"), action: {
+                        presentationMode.wrappedValue.dismiss()
+                    })
+                )
             }
-
-            username = $0.data?.username ?? .empty
         })
     }
 
 }
 
-struct AuthView_Previews: PreviewProvider {
+struct SignupView_Previews: PreviewProvider {
 
     static var previews: some View {
-        AuthView()
+        SignupView()
             .previewDevice(PreviewDevice(rawValue: "iPhone 12"))
             .previewDisplayName("iPhone 12")
     }

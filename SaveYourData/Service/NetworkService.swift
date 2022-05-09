@@ -4,6 +4,7 @@ enum APIPath {
 
     case apiAuthLogin
     case apiTotpGenerate
+    case apiAuthSignup
 
     var endPoint: String {
         switch self {
@@ -11,6 +12,8 @@ enum APIPath {
             return "api/auth/login"
         case .apiTotpGenerate:
             return "api/totp/generate"
+        case .apiAuthSignup:
+            return "api/auth/signup"
         }
     }
 
@@ -39,6 +42,19 @@ extension NetworkService {
 
     static func totpGenerate(_ body: TOTPRequest) -> AnyPublisher<DefaultResponse<TOTPResponse>, Error> {
         request(.apiTotpGenerate, .post, body)
+    }
+
+    // MARK: Signup
+    struct SignupRequest: RequestEncodableProtocol {
+
+        let username: String
+        let email: String
+        let password: String
+
+    }
+
+    static func signup(_ body: SignupRequest) -> AnyPublisher<DefaultResponse<SignupResponse>, Error> {
+        request(.apiAuthSignup, .post, body)
     }
 
 }

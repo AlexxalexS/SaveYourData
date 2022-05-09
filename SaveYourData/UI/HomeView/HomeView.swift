@@ -112,8 +112,8 @@ private struct ViewNotUnlock: View {
             Text("Войти по FaceID")
                 .padding()
                 .padding(.horizontal)
-                .background(Color.black)
-                .foregroundColor(.white)
+                .background(Color.mainButton)
+                .foregroundColor(.mainText)
                 .cornerRadius(26)
         })
 
@@ -152,8 +152,8 @@ private struct ViewIsUnlock:View {
             }, label: {
                 Text("Выйти")
                     .padding(8)
-                    .background(Color.black)
-                    .foregroundColor(.white)
+                    .background(Color.mainButton)
+                    .foregroundColor(.mainText)
                     .cornerRadius(26)
                     .font(.caption)
             }).padding(.horizontal), alignment: .trailing

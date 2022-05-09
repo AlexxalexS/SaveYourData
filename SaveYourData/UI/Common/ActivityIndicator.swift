@@ -7,10 +7,10 @@ struct LoaderView: View {
             HStack {
                 ZStack {
                     RoundedRectangle(cornerRadius: 26, style: .continuous)
-                        .fill(Color.white.opacity(0.9))
+                        .fill(Color.loader)
                         .frame(width: 400, height: 400)
                     ProgressView("Загрузка...")
-                        .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                        .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
                         .scaleEffect(x: 1.2, y: 1.2, anchor: .center)
                 }
             }
@@ -24,6 +24,7 @@ struct LoaderView_Previews: PreviewProvider {
 
     static var previews: some View {
         LoaderView()
+            .preferredColorScheme(.light)
     }
 
 }
