@@ -30,6 +30,7 @@
 		97E748582819D3CC0077306F /* SignupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E748572819D3CC0077306F /* SignupResponse.swift */; };
 		97E7485A2819D4770077306F /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E748592819D4770077306F /* SignupView.swift */; };
 		97E7485C2819D9F30077306F /* Color + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E7485B2819D9F30077306F /* Color + Extention.swift */; };
+		97E8268C282C58E6000108E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97E8268B282C58E6000108E2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +40,7 @@
 		8A7CCE322705EE6300BC098F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8A7CCE342705EE6500BC098F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A7CCE372705EE6500BC098F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8A7CCE7A2705F0EE00BC098F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8A7CCE7A2705F0EE00BC098F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AB8E73C27B98C9A009082DE /* Alert + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert + Extension.swift"; sourceTree = "<group>"; };
 		8AB8E73E27B98CB5009082DE /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		8AB8E74027B9ABFB009082DE /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		97E748572819D3CC0077306F /* SignupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupResponse.swift; sourceTree = "<group>"; };
 		97E748592819D4770077306F /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		97E7485B2819D9F30077306F /* Color + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extention.swift"; sourceTree = "<group>"; };
+		97E8268B282C58E6000108E2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +96,10 @@
 				8AC1F18D27B031AE00781260 /* Extensions */,
 				8AC1F18127B02D0400781260 /* Service */,
 				8AC1F19527B038E200781260 /* UI */,
-				8A7CCE7A2705F0EE00BC098F /* Info.plist */,
-				8A7CCE342705EE6500BC098F /* Assets.xcassets */,
 				8A7CCE362705EE6500BC098F /* Preview Content */,
+				8A7CCE7A2705F0EE00BC098F /* Info.plist */,
+				97E8268B282C58E6000108E2 /* LaunchScreen.storyboard */,
+				97E8268A282C5799000108E2 /* Resourse */,
 			);
 			path = SaveYourData;
 			sourceTree = "<group>";
@@ -196,6 +199,15 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
+		97E8268A282C5799000108E2 /* Resourse */ = {
+			isa = PBXGroup;
+			children = (
+				8A7CCE342705EE6500BC098F /* Assets.xcassets */,
+			);
+			name = Resourse;
+			path = ../Resourse;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -262,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97E8268C282C58E6000108E2 /* LaunchScreen.storyboard in Resources */,
 				8A7CCE382705EE6500BC098F /* Preview Assets.xcassets in Resources */,
 				8A7CCE352705EE6500BC098F /* Assets.xcassets in Resources */,
 			);
@@ -432,6 +445,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -466,6 +480,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;

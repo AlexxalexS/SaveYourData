@@ -45,13 +45,13 @@ struct RootView: App {
                         NavigationView {
                             AuthView()
                                 .hiddenNavigationBarStyle()
-                        }.transition(.slide)
+                        }.transition(.opacity)
                     }
                     if case .home = stateManager.state {
                         NavigationView {
                             HomeView()
                                 .hiddenNavigationBarStyle()
-                        }.transition(.slide)
+                        }.transition(.opacity)
                     }
                     if case .show = stateLoader.state {
                         LoaderView().transition(.opacity.animation(.easeInOut))
